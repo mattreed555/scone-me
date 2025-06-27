@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scone Me | Home</title>
+    <meta name="description" content="You click. We bake. You devour." />
+    <link rel="canonical" href="https://www.sconeme.net" />
+    <meta property="og:title" content="Scone Me | Home" />
+    <meta property="og:description" content="You click. We bake. You devour." />
+    <meta property="og:url" content="https://www.sconeme.net" />
+    <meta property="og:site_name" content="Scone Me" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/ab635ec9-45e8-4cba-8ea7-e1ffc5d9ae29%2Fscone.png?v=1609598991958"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-color: #0e2e47;
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      img {
+        height: auto;
+        width: 90%;
+        min-width: 280px;
+      }
+
+      @media only screen and (min-width: 640px) {
+        img {
+          width: 576px;
+        }
+      }
+
+      #main {
+        background-color: #0e2e47;
+        color: white;
+      }
+
+      #main img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #scone {
+        background-color: white;
+        color: black;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      #scone img {
+        margin-top: 75px;
+        display: inline-block;
+      }
+
+      a.button {
+        color: white;
+        font-size: 10pt;
+        text-decoration: none;
+        padding: 3px 3px 3px 3px;
+        border-top: 1px solid #cccccc;
+        border-right: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        border-left: 1px solid #cccccc;
+        border-width: 1px;
+        border-style: solid;
+        border-color: white;
+        text-align: center;
+        display: block;
+        width: 215px;
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        -o-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+      }
+
+      a:visited.button {
+        color: white;
+      }
+
+      a:hover.button {
+        color: #0e2e47;
+        background-color: white;
+      }
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    </style>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://cdn.glitch.com/ab635ec9-45e8-4cba-8ea7-e1ffc5d9ae29%2Ffavicon-32x32.png?v=1609600446205"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://cdn.glitch.com/ab635ec9-45e8-4cba-8ea7-e1ffc5d9ae29%2Ffavicon-16x16.png?v=1609600446205"
+    />
+    <script type="text/javascript">
+      window.onload = function () {
+        const animate = (oldContent, newContent) => {
+          oldContent.style.opacity = 1;
+          oldContent.style.display = "inline";
+          newContent.style.opacity = 0;
+          newContent.style.display = "inline";
+
+          var fadeOut = oldContent.animate(
+            {
+              opacity: [1, 0],
+            },
+            750
+          );
+
+          var fadeIn = newContent.animate(
+            {
+              opacity: [0, 1],
+            },
+            750
+          );
+
+          fadeIn.onfinish = function () {
+            newContent.style.opacity = 1;
+            newContent.style.display = "inline";
+          };
+
+          fadeOut.onfinish = function () {
+            oldContent.style.opacity = 0;
+            oldContent.style.display = "none";
+          };
+        };
+        const mainAnchor = document.getElementById("mainAnchor");
+        const sconeAnchor = document.getElementById("sconeAnchor");
+        const main = document.getElementById("main");
+        const scone = document.getElementById("scone");
+
+        mainAnchor.onclick = function () {
+          animate(main, scone);
+          return false;
+        };
+
+        sconeAnchor.onclick = function () {
+          animate(scone, main);
+          return false;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="main" class="overlay" style="display: inline; opacity: 1">
+      <h1>Scone Me is coming...</h1>
+      <img
+        src="https://cdn.glitch.com/ab635ec9-45e8-4cba-8ea7-e1ffc5d9ae29%2Fsconeme%20(1).png?v=1626402796525"
+        alt="Use scone me to order a lovely pastry."
+      />
+
+      <a id="mainAnchor" href="/" class="button"
+        >See what you are missing...&nbsp;&nbsp;›</a
+      >
+    </div>
+    <div id="scone" class="overlay" style="display: none; opacity: 0">
+      <a id="sconeAnchor" href="/">
+        <img
+          src="https://cdn.glitch.com/ab635ec9-45e8-4cba-8ea7-e1ffc5d9ae29%2Fscone.png?v=1609598991958"
+          alt="Picture of a delicious scone"
+        />
+      </a>
+    </div>
+  </body>
+</html>
